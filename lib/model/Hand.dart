@@ -6,23 +6,27 @@ enum Handtype {
   paper,
 }
 
-int HandTypeValue(Handtype hand) {
+int handTypeValue(Handtype hand) {
   // グーは0, チョキは1, パーは2を返す
   switch(hand) {
     case Handtype.block:
       return 0;
+      break;
     case Handtype.scissors:
       return 1;
+      break;
     case Handtype.paper:
       return 2;
+      break;
   }
+  return 10;
 }
 
 class Hand {
   Handtype hand = Handtype.block;
 
   int getHandValue() {
-    return HandTypeValue(hand);
+    return handTypeValue(hand);
   }
 
   void changeHand(Handtype newHand) {
