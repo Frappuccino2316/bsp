@@ -1,42 +1,46 @@
 import 'dart:math' as math;
 
-enum Handtype {
+enum HandType {
   block,
   scissors,
   paper,
 }
 
-int handTypeValue(Handtype hand) {
+int handTypeValue(HandType hand) {
   // グーは0, チョキは1, パーは2を返す
   switch(hand) {
-    case Handtype.block:
+    case HandType.block:
       return 0;
       break;
-    case Handtype.scissors:
+    case HandType.scissors:
       return 1;
       break;
-    case Handtype.paper:
+    case HandType.paper:
       return 2;
       break;
   }
   return 10;
 }
 
+// String handType
+
 class Hand {
-  Handtype hand = Handtype.block;
+  HandType hand = HandType.block;
+
+
 
   int getHandValue() {
     return handTypeValue(hand);
   }
 
-  void changeHand(Handtype newHand) {
+  void changeHand(HandType newHand) {
     this.hand = newHand;
   }
 
   void changeHandRandom() {
     var random = new math.Random();
     int randomHand = random.nextInt(3);
-    var handList = [Handtype.block, Handtype.scissors, Handtype.paper];
+    var handList = [HandType.block, HandType.scissors, HandType.paper];
     this.hand = handList[randomHand];
   }
 }
