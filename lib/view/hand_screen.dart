@@ -8,9 +8,13 @@ class HandScreen extends StatefulWidget {
 }
 
 class _HandScreenState extends State<HandScreen> {
-  Hand _player = Hand();
-  Hand _enemy = Hand();
-  // var _palyerHand = _player.hand;
+  Hand _player;
+  Hand _enemy;
+  
+  _HandScreenState() {
+    _player = Hand();
+    _enemy = Hand();
+  }
 
   void _changeEnemyHandRandom() {
     _enemy.changeHandRandom();
@@ -30,12 +34,12 @@ class _HandScreenState extends State<HandScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(_player.hand.toString()),
-            Text(_enemy.hand.toString()),
+            Text(_player.handString()),
+            Text(_enemy.handString()),
             TextButton(
               onPressed: () {
                 _changeEnemyHandRandom();
-                print(_enemy.hand.toString());
+                print(_enemy.handString());
               },
               child: Text('ぽん'),
             )
