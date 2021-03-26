@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 enum HandType {
   block,
   scissors,
@@ -35,43 +33,4 @@ String handTypeString(HandType hand) {
       break;
   }
   return 'なし';
-}
-
-class Hand {
-  HandType hand = HandType.block;
-
-  String handString() {
-    return handTypeString(hand);
-  }
-
-  int getHandValue() {
-    return handTypeValue(hand);
-  }
-
-  void changeHand(HandType newHand) {
-    this.hand = newHand;
-  }
-
-  void changeHandRandom() {
-    var random = new math.Random();
-    int randomHand = random.nextInt(3);
-    var handList = [HandType.block, HandType.scissors, HandType.paper];
-    this.hand = handList[randomHand];
-  }
-}
-
-String buttleJanken(int handOne, int handTwo) {
-  int result = handOne - handTwo;
-  switch(result) {
-    case 0:
-      return 'あいこ';
-    case -1:
-    case 2:
-      return '勝ち';
-    case -2:
-    case 1:
-      return '負け';
-    default:
-      return '';
-  }
 }
