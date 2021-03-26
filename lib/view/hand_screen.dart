@@ -58,9 +58,11 @@ class _HandScreenState extends State<HandScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text('Enemy', style: TextStyle(fontSize: 26.0)),
             Text(handTypeString(_enemyHand)),
-            Text(battleJanken()),
+            Text(battleJanken(), style: TextStyle(color: Colors.blue, fontSize: 35.0)),
             Text(handTypeString(_playerHand)),
+            Text('Player', style: TextStyle(fontSize: 26.0)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
