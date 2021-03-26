@@ -22,12 +22,27 @@ int handTypeValue(HandType hand) {
   return 10;
 }
 
-// String handType
+String handTypeString(HandType hand) {
+  switch(hand) {
+    case HandType.block:
+      return 'グー';
+      break;
+    case HandType.scissors:
+      return 'チョキ';
+      break;
+    case HandType.paper:
+      return 'パー';
+      break;
+  }
+  return 'なし';
+}
 
 class Hand {
   HandType hand = HandType.block;
 
-
+  String handString() {
+    return handTypeString(hand);
+  }
 
   int getHandValue() {
     return handTypeValue(hand);
