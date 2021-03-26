@@ -99,8 +99,6 @@ String handTypeImagePath(HandType hand) {
                 ]
               ),
             ),
-            // Text(handTypeString(_playerHand)),
-            // Text('Player', style: TextStyle(fontSize: 26.0)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
