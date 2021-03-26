@@ -48,6 +48,17 @@ class _HandScreenState extends State<HandScreen> {
   }
 }
 
+String handTypeImagePath(HandType hand) {
+  switch(hand) {
+    case HandType.block:
+      return 'images/block.png';
+    case HandType.scissors:
+      return 'images/scissors.png';
+    case HandType.paper:
+      return 'images/paper.png';
+  }
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,11 +69,36 @@ class _HandScreenState extends State<HandScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('Enemy', style: TextStyle(fontSize: 26.0)),
-            Text(handTypeString(_enemyHand)),
+            Padding(
+              padding: EdgeInsets.only(bottom: 20),
+              child: Column(
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Text('Enemy', style: TextStyle(fontSize: 26.0)),
+                  ),
+                  Transform.rotate(
+                    angle: math.pi,
+                    child: Image.asset(handTypeImagePath(_enemyHand), height: 100),
+                  ),
+                  Text(handTypeString(_enemyHand)),
+                ]
+              ),
+            ),
             Text(battleJanken(), style: TextStyle(color: Colors.blue, fontSize: 35.0)),
-            Text(handTypeString(_playerHand)),
-            Text('Player', style: TextStyle(fontSize: 26.0)),
+            Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: Column(
+                children: <Widget>[
+                  Image.asset(handTypeImagePath(_playerHand), height: 100),
+                  Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Text('Enemy', style: TextStyle(fontSize: 26.0)),
+                  ),
+                  Text(handTypeString(_playerHand)),
+                ]
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
