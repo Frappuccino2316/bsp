@@ -77,7 +77,10 @@ String handTypeImagePath(HandType hand) {
                     padding: EdgeInsets.all(10.0),
                     child: Text('Enemy', style: TextStyle(fontSize: 26.0)),
                   ),
-                  Image.asset(handTypeImagePath(_enemyHand), height: 100),
+                  Transform.rotate(
+                    angle: math.pi,
+                    child: Image.asset(handTypeImagePath(_enemyHand), height: 100),
+                  ),
                   Text(handTypeString(_enemyHand)),
                 ]
               ),
